@@ -21,3 +21,4 @@ for mark in marks:
         grade = "D"
 
     print(mark, "-> Grade:", grade)
+print("Student analysis completed.")  
