@@ -6,3 +6,5 @@ average = total / len(marks)
 print("Total marks:", total)
 print("Average marks:", average)
 print("Highest mark:", max(marks))
+
+print("Lowest mark:",min(marks))
