@@ -7,3 +7,5 @@ print(branch)
 
 print("I am learning the terminal")
 print(10 + 20)
+
+print(" I am learning git properly")
