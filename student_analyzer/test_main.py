@@ -1,5 +1,7 @@
 import unittest
+
 from main import analyze_marks
+
 
 class TestStudentAnalyzer(unittest.TestCase):
     def test_analyze_marks(self):
