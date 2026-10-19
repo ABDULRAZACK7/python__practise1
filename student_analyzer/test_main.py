@@ -24,6 +24,14 @@ class TestStudentAnalyzer(unittest.TestCase):
         result=analyze_marks(marks)
         self.assertAlmostEqual(result["average"],84.2)
 
+    def test_negative_marks(self):
+        marks = [85, 90, -5, 96, 78]
+        with self.assertRaises(ValueError):
+            analyze_marks(marks)
+    def test_marks_above_100(self):
+        marks=[10,20,80,105,245]
+        with self.assertRaises(ValueError):
+            analyze_marks(marks)
        
 if __name__ == "__main__":
     unittest.main()
