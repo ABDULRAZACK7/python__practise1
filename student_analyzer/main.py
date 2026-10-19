@@ -1,35 +1,54 @@
-marks = [85, 90, 72, 96, 78]
 
-total = sum(marks)
-average = total / len(marks)
+def analyze_marks(marks):
+    total = sum(marks)
+    average = total / len(marks)
 
-print("Total marks:", total)
-print("Average marks:", average)
-print("Highest mark:", max(marks))
+    grades = {'A': 0, 'B': 0, 'C': 0, 'D': 0}
 
-print("Lowest mark:",min(marks))
-print("Number of students:",len(marks))
+    for mark in marks:
+        if mark >= 90:
+            grade = "A"
+        elif mark >= 80:
+            grade = "B"
+        elif mark >= 70:
+            grade = "C"
+        else:
+            grade = "D"
 
-grades={'A':0,'B':0,'C':0,'D':0}
-
-for mark in marks:
-
-    if mark >= 90:
-        grade = "A"
         grades[grade] += 1
 
-    elif mark >= 80:
-        grade = "B"
-        grades[grade] += 1
-    elif mark >= 70:
-        grade = "C"
-        grades[grade] += 1
-    else:
-        grade = "D"
-        grades[grade] += 1
+    return {
+        "total": total,
+        "average": average,
+        "highest": max(marks),
+        "lowest": min(marks),
+        "count": len(marks),
+        "grades": grades
+    }
 
-    print(mark, "-> Grade:", grade)
-print("Student analysis completed.")  
 
-for grade, count in grades.items():
-    print(f"{grade}:{count} students")
+if __name__ == "__main__":
+    marks = [85, 90, 72, 96, 78]
+    result = analyze_marks(marks)
+
+    print("Total marks:", result["total"])
+    print("Average marks:", result["average"])
+    print("Highest mark:", result["highest"])
+    print("Lowest mark:", result["lowest"])
+    print("Number of students:", result["count"])
+
+    for mark in marks:
+        if mark >= 90:
+            grade = "A"
+        elif mark >= 80:
+            grade = "B"
+        elif mark >= 70:
+            grade = "C"
+        else:
+            grade = "D"
+        print(mark, "-> Grade:", grade)
+
+    print("Student analysis completed.")
+
+    for grade, count in result["grades"].items():
+        print(f"{grade}:{count} students")
