@@ -15,7 +15,13 @@ class TestStudentAnalyzer(unittest.TestCase):
         self.assertEqual(result["grades"]["B"], 1)
         self.assertEqual(result["grades"]["C"], 2)  
         self.assertEqual(result["grades"]["D"], 0)
-        
+
+    def test_average_marks(self):
+        marks=[85, 90, 72, 96, 78]
+
+        result=analyze_marks(marks)
+        self.assertAlmostEqual(result["average"],84.2)
+
        
 if __name__ == "__main__":
     unittest.main()
