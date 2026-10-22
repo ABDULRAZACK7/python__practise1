@@ -32,6 +32,26 @@ class TestStudentAnalyzer(unittest.TestCase):
         marks=[10,20,80,105,245]
         with self.assertRaises(ValueError):
             analyze_marks(marks)
+
+    def test_mixed_marks(self):
+        marks=[80,30,45,20,90]
+        result=analyze_marks(marks)
+        self.assertEqual(result["passed"],3)
+
+    def test_all_failed(self):
+        marks=[10,20,30,25,15]
+        result=analyze_marks(marks)
+        self.assertEqual(result["failed"],5)
+
+    def test_all_passed(self):
+        marks=[80,90,75,85,95]
+        result=analyze_marks(marks)
+        self.assertEqual(result["passed"],5)
+    def test_boundary_marks(self):
+        marks=[0,35,100]
+        result=analyze_marks(marks)
+        self.assertEqual(result["failed"],1)
+        self.assertEqual(result["passed"],2)
        
 if __name__ == "__main__":
     unittest.main()
