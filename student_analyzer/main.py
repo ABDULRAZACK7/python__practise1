@@ -24,13 +24,23 @@ def analyze_marks(marks):
 
         grades[grade] += 1
 
+    passed=0
+    failed=0
+    for mark in marks:
+        if mark>=35:
+            passed+=1
+        else:
+            failed+=1
+
     return {
         "total": total,
         "average": average,
         "highest": max(marks),
         "lowest": min(marks),
         "count": len(marks),
-        "grades": grades
+        "grades": grades,
+        "passed": passed,
+        "failed": failed
     }
 
 
@@ -43,19 +53,9 @@ if __name__ == "__main__":
     print("Highest mark:", result["highest"])
     print("Lowest mark:", result["lowest"])
     print("Number of students:", result["count"])
+    print("Grades distribution:", result["grades"])
+    print("Number of students passed:", result["passed"])
+    print("Number of students failed:", result["failed"])
 
-    for mark in marks:
-        if mark >= 90:
-            grade = "A"
-        elif mark >= 80:
-            grade = "B"
-        elif mark >= 70:
-            grade = "C"
-        else:
-            grade = "D"
-        print(mark, "-> Grade:", grade)
 
-    print("Student analysis completed.")
-
-    for grade, count in result["grades"].items():
-        print(f"{grade}:{count} students")
+    
